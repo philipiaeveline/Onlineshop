@@ -4,6 +4,8 @@
 [Philipia eveline/](https://github.com/philipiaeveline/Onlineshop)  
   
 # Description  
+Online Business or e-business is any kind of business or commercial transaction that includes sharing information across the internet
+You can add comment,like or dislike.
 
   
 ##  Live Link  
