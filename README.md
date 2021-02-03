@@ -7,7 +7,7 @@
 
   
 ##  Live Link  
- Click [View Site](https://github.com/philipiaeveline/Onlineshop)  to visit the site
+ Click [View Site]()  to visit the site
  
 ## User Story  
   
@@ -71,10 +71,10 @@ Open the application on your browser `127.0.0.1:8000`.
 ## Known Bugs  
 * There are no known bugs currently but pull requests are allowed incase you spot a bug  
   
-## Contact Information   
+## Contact Information  
 If you have any question or contributions, please email me at [philipiaeveline13@gmail.com]  
   
 ## License 
-* [![License](https://img.shields.io/packagist/l/loopline-closeio-api-wrapper.svg)]
+* [![License]z
 
 * Copyright (c) 2020 *PHILIPIA**
