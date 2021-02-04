@@ -1,0 +1,1 @@
+web: gunicorn ShopClone.wsgi --log-file -

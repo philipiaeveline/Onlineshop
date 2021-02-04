@@ -17,7 +17,7 @@ import django_heroku
 import dj_database_url
 from decouple import config,Csv
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
@@ -29,7 +29,7 @@ SECRET_KEY = '&v2d5+29mway38v^@752+yu-kgsu7)+1!i$0h9qwx)kp2&069!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*','.herokuapp.com']
 
 
 # Application definition
@@ -55,6 +55,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+ 
 ]
 
 ROOT_URLCONF = 'ShopClone.urls'
@@ -110,13 +112,23 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+REST_FRAMEWORK = {
+   'DEFAULT_AUTHENTICATION_CLASSES': (
+       'rest_framework.authentication.TokenAuthentication',
+   )
+}
+
+LOGIN_REDIRECT_URL='OnlineShop-landing'
+LOGIN_URL='login'
+ 
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Nairobi'
 
 USE_I18N = True
 
@@ -128,27 +140,21 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-    #'/var/www/static/',
+    os.path.join(BASE_DIR,'static'),
 ]
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static')
 
 cloudinary.config(
   cloud_name = "dvwhabrxu",
   api_key = "865355552273268",
   api_secret = "DlJC_ZnUWOqgnFeI0FJTlWBuAx4"
 )
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-
-
-RISPY_TEMPLATE_PACK='bootstrap4'
-
-LOGIN_REDIRECT_URL='OnlineShop-landing'
-LOGIN_URL='login'
+# Configure Django App for Heroku.
+django_heroku.settings(locals())
