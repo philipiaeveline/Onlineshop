@@ -12,10 +12,6 @@
           </div>
           <a class="mr-2" href="{% url 'comment' post.id %}">Comments</a>
           {% if user.is_authenticated %}
-          <form action="{% url 'like_post' post.pk %}" method="POST">
-            {% csrf_token %}
-            <button type="submit" name="post_id" value="{{post.id}}" class="btn-sm btn-info"><b style="color: black;">Like</b></button>
-          </form>
           {% endif %}
         </article>
     {% endfor %}
