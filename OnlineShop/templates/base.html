@@ -40,12 +40,14 @@
               <div class="navbar-nav">
                 {% if user.is_authenticated %}
                 <form class="form-inline" action="{%url "search" %}">
-                  <div class="md-form my-0">
-                    <button> <input class="form-control mr-sm-5" type="text" placeholder="Search" name="searchUser"
-                          aria-label="Search">search
-                          </button>
-                  </div>
-              </form> 
+                    <div class="md-form my-0">
+                        <input class="form-control mr-sm-5" type="text" placeholder="Search" name="searchUser"
+                            aria-label="Search">
+                            <button class="btn btn-info btn-md my-2 my-sm-0" type="submit">Search</button>
+                    </div>
+                </form>
+
+              
 
                 <a class="navbar-brand mr-4" href="{% url 'user-posts' %}">Follow</a>
                 <a class="navbar-brand mr-4" href="{% url 'post-create' %}">New Post</a>
@@ -79,7 +81,7 @@
 
 <style>
   body{
-    background-image: url("https://images.unsplash.com/photo-1567935850829-e52d7bfe37ce?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NjV8fHxlbnwwfHx8&auto=format&fit=crop&w=500&q=60");
+    background-image: url("https://images.unsplash.com/photo-1566136646093-bf14a769d8d4?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MjR8fHxlbnwwfHx8&auto=format&fit=crop&w=500&q=60");
     color: aliceblue;
     background-repeat: no-repeat;
     background-size: cover;
