@@ -1,8 +1,41 @@
 {% extends "base.html" %}
 {% block content %}
     {% for post in posts %}
-        <article class="media content-section">
-          <img class="#" src="{{ post.image.url }}" height="300px" width="350px">
+<!-- <div class="container">
+  <div class="col-sm-12 col-md-6 col-lg-4">
+    <div class="card" style="height:360px;margin-bottom:10px;">
+      <div class="card-body">
+          <a href="{{ post.image.url }} %}">
+              <div class="img-cont">
+                  <img class="card-img-top mb-10 img-responsive i-images" src="{{ post.image.url }}" style="height:260px;width:100%;">
+                  <div class="overlay">
+                      <div class="text">{{post.title}}</div>
+                      <div class="text">{{ post.caption }}</div>
+                      <div class="details"><a href="{% url 'comment' post.id %}" class="btn btn-info">Comments</a></div>
+                  </div>
+              </div>
+          </a>
+          <br>
+          <p style="font-size:16px;">By : {{post.user | upper}} <span style="float:right;font-size:16px;">posted on {{ post.pub_date|date:"F d, Y" }}</span></p>
+      </div>
+      <div class="card-body">
+          <div class="card-text">
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+ -->
+<div class="container-fluid">
+
+         <article class="media content-section">
+
+          <div class="img">
+          <img class="#" src="{{ post.image.url }}" height="350px" width="350px">
+          </div>
+          <br>
+
           <div class="media-body">
             <div class="article-metadata">
               <small class="text-muted">posted on {{ post.pub_date|date:"F d, Y" }}</small>
@@ -10,9 +43,17 @@
             <h2><a class="article-title" href="{% url 'post-detail' post.id %}"><b style="color: black;">View Image</b></a></h2>
             <p class="article-content">{{ post.caption }}</p>
           </div>
-          <a class="mr-2" href="{% url 'comment' post.id %}">Comments</a>
+          <a class="mr-2" href="{% url 'comment' post.id %}"><b style="color: blue;">Comments</b></a>
           {% if user.is_authenticated %}
           {% endif %}
         </article>
+
     {% endfor %}
+  </div>
+
+    <style>
+      article{
+        padding: 20px;
+      }
+    </style>
 {% endblock content %}
